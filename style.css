@@ -100,14 +100,22 @@ body {
 
 .calc-button.btn-number {
   background: #efefef;
+  font-size: larger;
 }
 
 .calc-button.btn-operation {
   background: #ffdba4;
+
+  font-size: larger;
+  font-weight: bolder;
 }
 
 .footer {
-  margin-top: 6em;
+  margin-top: 5em;
 
   text-align: center;
+}
+
+.smaller-text {
+  font-size: smaller;
 }
