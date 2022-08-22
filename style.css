@@ -56,10 +56,13 @@ body {
   height: 8rem;
   padding: 0.85rem;
   margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
 
   font-weight: bolder;
   font-size: 2rem;
   text-align: right;
+
+  overflow-x: hidden;
 
   display: flex;
   justify-content: end;
@@ -94,6 +97,13 @@ body {
   justify-content: center;
 
   flex: 1;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.calc-button:hover {
+  -webkit-filter: brightness(85%);
 }
 
 .calc-button.btn-delete {

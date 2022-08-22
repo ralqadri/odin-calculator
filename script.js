@@ -32,3 +32,18 @@ function operate(operator, a, b) {
     }
 
 }
+
+const calcDisplay = document.querySelector('.calc-display');
+
+function clickNumberButton() {
+    if (calcDisplay.textContent === '0') {
+        calcDisplay.textContent = this.textContent;
+    } else {
+        calcDisplay.textContent += this.textContent;
+    }
+}
+
+const numberButtons = document.querySelectorAll('.btn-number');
+numberButtons.forEach((button) => {
+    button.addEventListener("click", clickNumberButton);
+})
