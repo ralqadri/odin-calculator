@@ -14,13 +14,19 @@ html,
 body {
   all: unset;
 
-  background: #c1efff;
-  font-family: "Poppins", sans-serif;
-
   height: 100%;
+
+  /* background-color: ; */
+  background-color: #efefef;
+  background-image: url("assets/tilegrid.png");
+  background-size: 100%;
+
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
+  background: rgba(255, 255, 255, 0.85);
+
   height: 100%;
   margin-top: auto;
   overflow-y: hidden;
