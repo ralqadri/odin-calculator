@@ -26,7 +26,7 @@ body {
   overflow-y: hidden;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -35,7 +35,7 @@ body {
   border: 2px solid black;
   border-radius: 12px;
 
-  background: rgba(239, 239, 239, 0.8);
+  background: #cecece;
 
   width: 500px;
   padding: 1rem;
@@ -63,7 +63,11 @@ body {
 .calc-buttons {
   /* border: 2px solid purple; */
 
-  /* padding: 0.5rem; */
+  margin-bottom: 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .calc-buttons-col {
@@ -88,4 +92,22 @@ body {
 
 .calc-button.btn-delete {
   background: #ffb3b3;
+}
+
+.calc-button.btn-backspace {
+  background: #cd96d1;
+}
+
+.calc-button.btn-number {
+  background: #efefef;
+}
+
+.calc-button.btn-operation {
+  background: #ffdba4;
+}
+
+.footer {
+  margin-top: 6em;
+
+  text-align: center;
 }
