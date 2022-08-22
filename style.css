@@ -1,0 +1,91 @@
+/* palette can be found here: https://colorhunt.co/palette/ffb3b3ffdba4ffe9aec1efff */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  all: unset;
+
+  background: #c1efff;
+  font-family: "Poppins", sans-serif;
+
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  margin-top: auto;
+  overflow-y: hidden;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc {
+  border: 2px solid black;
+  border-radius: 12px;
+
+  background: rgba(239, 239, 239, 0.8);
+
+  width: 500px;
+  padding: 1rem;
+}
+
+.calc-display {
+  border: 2px solid black;
+  border-radius: 12px;
+
+  background: #efefef;
+
+  height: 8rem;
+  padding: 0.85rem;
+  margin-bottom: 1.5rem;
+
+  font-weight: bolder;
+  font-size: 2rem;
+  text-align: right;
+
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.calc-buttons {
+  /* border: 2px solid purple; */
+
+  /* padding: 0.5rem; */
+}
+
+.calc-buttons-col {
+  /* border: 2px solid red; */
+
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+.calc-button {
+  border: 2px solid black;
+  border-radius: 12px;
+
+  padding: 0.25rem;
+
+  display: flex;
+  justify-content: center;
+
+  flex: 1;
+}
+
+.calc-button.btn-delete {
+  background: #ffb3b3;
+}
