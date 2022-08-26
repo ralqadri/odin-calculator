@@ -33,41 +33,79 @@ function operate(operator, a, b) {
 
 }
 
-let numbers = [];
+function symbolizeOperation(operation) {
+    if (operation === 'add') {
+        return '+';
+    } else if (operation === 'subtract') {
+        return '-';
+    } else if (operation === 'multiply') {
+        return '×';
+    } else if (operation === 'divide') {
+        return '÷';
+    }
+}
 
-const calcDisplay = document.querySelector('.calc-display');
+
+const calcCurrentDisplay = document.querySelector('.calc-display-current');
+const calcHistoryDisplay = document.querySelector('.calc-display-history');
+
+let firstNumber, secondNumber;
+let operation, operationDisplay;
+let firstNumberToggle = false;
 
 function clickNumberButton() {
-    if (calcDisplay.textContent == '0') {
-        calcDisplay.textContent = this.textContent;
+    if (calcCurrentDisplay.textContent == 0 && firstNumber == undefined) {
+        calcCurrentDisplay.textContent = this.textContent;
+    } else if (firstNumberToggle) {
+        calcCurrentDisplay.textContent = this.textContent;
+        firstNumberToggle = false;
     } else {
-        calcDisplay.textContent += this.textContent;
+        calcCurrentDisplay.textContent += this.textContent;
     }
 }
 
 function clickOperationButton() {
-    // catch first number for operation (a), store it on `numbers`
-    let firstNumber = calcDisplay.textContent;
-    numbers.push(Number(firstNumber));
-    console.log(numbers);
-
-    calcDisplay.textContent = 0;
-
-    console.log(numbers);
+    firstNumber = Number(calcCurrentDisplay.textContent);
+    firstNumberToggle = true;
+    operation = this.id;
+    operationDisplay = symbolizeOperation(operation);
+    calcHistoryDisplay.textContent = `${firstNumber} ${operationDisplay}`
 }
 
 function clickEqualButton() {
-    let secondNumber = calcDisplay.textContent;
-    numbers.push(Number(secondNumber));
-
-    console.log(numbers);
-    findResults();
+    secondNumber = Number(calcCurrentDisplay.textContent);
+    if (firstNumber == undefined) {
+        calcCurrentDisplay.textContent = secondNumber;
+    } else {
+        calcHistoryDisplay.textContent += ` ${secondNumber}`;
+        if (secondNumber == 0 && operation == 'divide') {
+            calcCurrentDisplay.textContent = "nope, silly!";
+            return;
+        }
+        calcCurrentDisplay.textContent = operate(operation, firstNumber, secondNumber);
+    }
 }
 
-function findResults() {
-    console.log(add(numbers[0], numbers[1]));
+function clearAll() {
+    // https://stackoverflow.com/questions/5795936/how-to-set-a-javascript-var-as-undefined/24748543#24748543
+    // void 0 is just to make them go back to `undefined`
+    firstNumber = void 0;
+    secondNumber = void 0;
+    operation = void 0;
+    operationDisplay = void 0;
+    firstNumberToggle = false;
+    calcHistoryDisplay.textContent = '';
+    calcCurrentDisplay.textContent = '0';
+}
 
-    numbers = [];
+function backspaceNumber() {
+    if (calcCurrentDisplay.textContent <= 9) {
+        calcCurrentDisplay.textContent = '0';
+    } else if (calcCurrentDisplay.textContent[0] == 0) {
+        calcCurrentDisplay.textContent = calcCurrentDisplay.textContent.slice(1);
+    } else if (calcCurrentDisplay.textContent != 0) {
+        calcCurrentDisplay.textContent = calcCurrentDisplay.textContent.slice(0, -1);
+    }
 }
 
 const numberButtons = document.querySelectorAll('.btn-number');
@@ -82,3 +120,9 @@ operationButtons.forEach((button) => {
 
 const equalButton = document.querySelector('.btn-equal');
 equalButton.addEventListener("click", clickEqualButton);
+
+const clearButton = document.querySelector('.btn-clear');
+clearButton.addEventListener("click", clearAll);
+
+const backspaceButton = document.querySelector('.btn-backspace');
+backspaceButton.addEventListener("click", backspaceNumber);

@@ -1,5 +1,4 @@
 /* palette can be found here: https://colorhunt.co/palette/ffb3b3ffdba4ffe9aec1efff */
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&display=swap");
 
 *,
@@ -43,7 +42,7 @@ body {
 
   background: #cecece;
 
-  width: 500px;
+  width: 400px;
   padding: 1rem;
 }
 
@@ -58,15 +57,24 @@ body {
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
 
-  font-weight: bolder;
-  font-size: 2rem;
   text-align: right;
 
   overflow-x: hidden;
 
   display: flex;
+  flex-direction: column;
   justify-content: end;
   align-items: end;
+}
+
+.calc-display-current {
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.calc-display-history {
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
 .calc-buttons {
@@ -80,8 +88,6 @@ body {
 }
 
 .calc-buttons-col {
-  /* border: 2px solid red; */
-
   display: flex;
   justify-content: space-around;
   gap: 0.5rem;
@@ -95,6 +101,7 @@ body {
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   flex: 1;
 
@@ -102,11 +109,18 @@ body {
   user-select: none;
 }
 
+.calc-button.btn-number,
+.calc-button.btn-operation,
+.calc-button.btn-equal {
+  aspect-ratio: 1/1;
+  width: 0.5rem;
+}
+
 .calc-button:hover {
   -webkit-filter: brightness(85%);
 }
 
-.calc-button.btn-delete {
+.calc-button.btn-clear {
   background: #ffb3b3;
 }
 
