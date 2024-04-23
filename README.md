@@ -2,7 +2,7 @@
 An interactive calculator based on HTML/CSS/JavaScript, made for The Odin Project.
 
 # Live demo
-The live demo of this project is available here: https://rzkalqdr.github.io/top-calculator
+The live demo of this project is available here: https://ralqadri.github.io/odin-calculator
 
 # Preview
-[![image](https://github.com/ralqadri/odin-rockpaperscissors/assets/57430190/febc843f-c20c-4330-bf37-8e6c8320bfbd)](https://rzkalqdr.github.io/top-calculator)
+![20240423_1306_chrome](https://github.com/ralqadri/top-calculator/assets/57430190/3bc3f569-e278-4fbf-af12-3f5e8621d97e)
